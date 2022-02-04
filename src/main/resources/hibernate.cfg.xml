@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory name="hi">
+  <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+  <property name="hibernate.connection.password">axelor</property>
+  <property name="hibernate.connection.url">jdbc:postgresql://localhost:5433/student</property>
+  <property name="hibernate.connection.username">axelor</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+  <property name="hbm2ddl.auto">update</property>
+  <!-- create / create-drop / update -->
+  <property name="show_sql">true</property>
+  <!-- Show SQL in console -->
+  <property name="format_sql">true</property>
+  
+  <property name="hibernate.cache.use_second_level_cache">true</property>
+  <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+  
+  
+    <!-- Show SQL formatted -->  
+ </session-factory>
+</hibernate-configuration>
