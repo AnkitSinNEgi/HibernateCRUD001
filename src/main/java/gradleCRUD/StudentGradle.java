@@ -33,10 +33,11 @@ public class StudentGradle {
 		this.city = city;
 	}
 	
+	//for retreving TEl
+	@Override
+	public String toString() {
+		return"StudentGradle [id="+id+",name="+name+",city="+city+"]";
+		
+	}
 	
-	
-	
-	
-	
-
 }
