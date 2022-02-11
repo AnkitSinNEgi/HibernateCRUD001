@@ -2,17 +2,23 @@
 
 package gradleCRUD;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
 public class Laptop {
-	
+	@Id
 	private int lid;
 	private String lname;
-	@ManyToOne
-	private StudentGradle studentgradle;
+	
+	
+	@ManyToMany
+	private List<StudentGradle> studentgradle = new ArrayList<StudentGradle>();
+	
 	//getter- setter
 	public int getLid() {
 		return lid;
@@ -35,10 +41,10 @@ public class Laptop {
 	}
 	
 	//getter and setter for student
-	public StudentGradle getStudentgradle() {
+	public List<StudentGradle> getStudentgradle() {
 		return studentgradle;
 	}
-	public void setStudentgradle(StudentGradle studentgradle) {
+	public void setStudentgradle(List<StudentGradle> studentgradle) {
 		this.studentgradle = studentgradle;
 	}
 	

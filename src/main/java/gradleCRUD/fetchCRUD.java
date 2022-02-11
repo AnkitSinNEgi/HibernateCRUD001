@@ -1,6 +1,9 @@
 
 package gradleCRUD;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.transaction.Transaction;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -23,10 +26,21 @@ public class fetchCRUD
 	         org.hibernate.Transaction tx= session.beginTransaction();
 	         //session.save(st);
 			  StudentGradle st =(StudentGradle)session.get(StudentGradle.class,id);
-			  	Laptop laptop =(Laptop)session.get(Laptop.class,st.getId());
+			  
+			  String laptopName = "";
+			  
+			 List<Laptop> laptopList= st.getLaptop();
+			 
+			 for(Laptop laptop: laptopList)
+			 {
+				 laptopName = laptop.getLname();
+				 
+			 }
+			 
+			 //Laptop laptop =(Laptop)session.get(Laptop.class,st.getId());
   	        //   Laptop laptop= st. 
 			  System.out.println(st);
-  	         System.out.println(laptop);
+  	         System.out.println(laptopName);
 	         	tx.commit();
 //	         	
 			

@@ -32,15 +32,20 @@ public class AnkitCRUD
     
             //laptop 
             Laptop laptop = new Laptop();
-             laptop.setLid(611);
+             laptop.setLid(6011);
              laptop.setLname("Hp");
              
-        
+//             laptop.setLid(6012);
+//             laptop.setLname("Hpp");
+//             
+//        
            
             st.setId(n);
             st.setName(name);
             st.setCity(city);
             st.getLaptop().add(laptop);
+            
+            laptop.getStudentgradle().add(st);
              
             //for students
             Configuration con =new Configuration().configure().addAnnotatedClass(StudentGradle.class).addAnnotatedClass(Laptop.class);

@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -17,7 +18,7 @@ public class StudentGradle implements Serializable{
 	private String name;
 	private String city;
 	
-	@OneToMany
+	@ManyToMany
 	private List<Laptop> laptop=new ArrayList<Laptop>();
 	
 	public int getId() {
