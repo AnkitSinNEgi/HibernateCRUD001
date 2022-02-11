@@ -30,16 +30,18 @@ public class AnkitCRUD
             System.out.println("Enter an city: ");
             String city= sc.next();
     
-            //laptop 
+            //input for laptop values
+            System.out.println(" Enter Laptop ID ");
+            int lapID= sc.nextInt();
+       
+            System.out.println("Enter Laptop Name  ");
+             String lapname= sc.next();
+            
+     //laptop 
             Laptop laptop = new Laptop();
-             laptop.setLid(6011);
-             laptop.setLname("Hp");
-             
-//             laptop.setLid(6012);
-//             laptop.setLname("Hpp");
-//             
-//        
-           
+             laptop.setLid(lapID);
+             laptop.setLname(lapname);
+       
             st.setId(n);
             st.setName(name);
             st.setCity(city);
