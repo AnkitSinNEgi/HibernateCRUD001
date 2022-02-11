@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.*;
 import java.util.Scanner;
+import javax.persistence.OneToOne;
 
 public class AnkitCRUD 
 {
@@ -13,14 +14,14 @@ public class AnkitCRUD
     {
         StudentGradle st =new StudentGradle();
         
-        System.out.println("Enter an id: ");
+        System.out.println("Select Yout Option: ");
         Scanner sc = new Scanner(System.in);
         
-        System.out.println("1. Enter new Data: \n 2. Delete a data: \n 3. Fetch data :");
+        System.out.println("  Enter 1 for new Data \n  Enter 2 to delete Data  \n  Enter 3 to  get Data ");
         int choice = sc.nextInt();
         if(choice == 1){
         	 //Insert data code goes here
-        	 
+        	 System.out.println(" Enter Unique ID ");
             int n= sc.nextInt();
        
             System.out.println("Enter name : ");
@@ -28,23 +29,31 @@ public class AnkitCRUD
        
             System.out.println("Enter an city: ");
             String city= sc.next();
-       
-            
+    
+            //laptop 
+            Laptop laptop = new Laptop();
+             laptop.setLid(611);
+             laptop.setLname("Hp");
+             
+        
+           
             st.setId(n);
             st.setName(name);
             st.setCity(city);
-            
-            Configuration con =new Configuration().configure().addAnnotatedClass(StudentGradle.class);
-            
+            st.getLaptop().add(laptop);
+             
+            //for students
+            Configuration con =new Configuration().configure().addAnnotatedClass(StudentGradle.class).addAnnotatedClass(Laptop.class);
             SessionFactory sf = con.buildSessionFactory();
-            
-             Session session = sf.openSession();
-            
-             org.hibernate.Transaction tx= session.beginTransaction();
+            Session session = sf.openSession();
+            org.hibernate.Transaction tx= session.beginTransaction();
              session.save(st);
+             session.save(laptop);
              tx.commit();
-        
-        } 
+             
+             //for laptop
+             
+         } 
         else if(choice == 2)
         {
         //Delete data code

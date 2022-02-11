@@ -17,16 +17,16 @@ public class fetchCRUD
 		
 		public fetchCRUD(int id)
 		{
-			Configuration con =new Configuration().configure().addAnnotatedClass(StudentGradle.class);
+			Configuration con =new Configuration().configure().addAnnotatedClass(StudentGradle.class).addAnnotatedClass(Laptop.class);
 	         SessionFactory sf = con.buildSessionFactory();
             Session session = sf.openSession();
 	         org.hibernate.Transaction tx= session.beginTransaction();
 	         //session.save(st);
-			
-			  
-	         StudentGradle st =(StudentGradle)session.get(StudentGradle.class,id);
-//	         
-  	         System.out.println(st);
+			  StudentGradle st =(StudentGradle)session.get(StudentGradle.class,id);
+			  	Laptop laptop =(Laptop)session.get(Laptop.class,st.getId());
+  	        //   Laptop laptop= st. 
+			  System.out.println(st);
+  	         System.out.println(laptop);
 	         	tx.commit();
 //	         	
 			
