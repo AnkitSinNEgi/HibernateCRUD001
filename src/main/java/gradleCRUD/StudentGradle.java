@@ -18,7 +18,7 @@ public class StudentGradle implements Serializable{
 	private String name;
 	private String city;
 	
-	@ManyToMany
+	@ManyToMany(mappedBy="laptop")
 	private List<Laptop> laptop=new ArrayList<Laptop>();
 	
 	public int getId() {

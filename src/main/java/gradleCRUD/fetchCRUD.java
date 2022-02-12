@@ -28,19 +28,21 @@ public class fetchCRUD
 			  StudentGradle st =(StudentGradle)session.get(StudentGradle.class,id);
 			  
 			  String laptopName = "";
+			  int laptopId;
 			  
 			 List<Laptop> laptopList= st.getLaptop();
 			 
 			 for(Laptop laptop: laptopList)
 			 {
+				 laptopId = laptop.getLid();
 				 laptopName = laptop.getLname();
+				 System.out.println(laptopId +": "+ laptopName);
 				 
 			 }
 			 
 			 //Laptop laptop =(Laptop)session.get(Laptop.class,st.getId());
   	        //   Laptop laptop= st. 
 			  System.out.println(st);
-  	         System.out.println(laptopName);
 	         	tx.commit();
 //	         	
 			

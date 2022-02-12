@@ -29,33 +29,39 @@ public class AnkitCRUD
        
             System.out.println("Enter an city: ");
             String city= sc.next();
-    
-            //input for laptop values
-            System.out.println(" Enter Laptop ID ");
-            int lapID= sc.nextInt();
-       
-            System.out.println("Enter Laptop Name  ");
-             String lapname= sc.next();
             
-     //laptop 
-            Laptop laptop = new Laptop();
-             laptop.setLid(lapID);
-             laptop.setLname(lapname);
-       
             st.setId(n);
             st.setName(name);
             st.setCity(city);
-            st.getLaptop().add(laptop);
             
-            laptop.getStudentgradle().add(st);
-             
-            //for students
+            //Input muliple laptops
+            System.out.println("Enter number of laptops to insert: ");
+            int lCount = sc.nextInt();
+            
+          //for students
             Configuration con =new Configuration().configure().addAnnotatedClass(StudentGradle.class).addAnnotatedClass(Laptop.class);
             SessionFactory sf = con.buildSessionFactory();
             Session session = sf.openSession();
             org.hibernate.Transaction tx= session.beginTransaction();
-             session.save(st);
-             session.save(laptop);
+            session.save(st);
+            
+            while(lCount-- > 0) {
+            	//input for laptop values
+                System.out.println(" Enter Laptop ID ");
+                int lapID= sc.nextInt();
+           
+                System.out.println("Enter Laptop Name  ");
+                 String lapname= sc.next();
+                 
+                 Laptop laptop = new Laptop();
+                 laptop.setLid(lapID);
+                 laptop.setLname(lapname);
+                 st.getLaptop().add(laptop);
+                 laptop.getStudentgradle().add(st);
+                 session.save(laptop);
+            }
+            
+            System.out.println("Done!!!");
              tx.commit();
              
              //for laptop
