@@ -18,8 +18,8 @@ public class StudentGradle implements Serializable{
 	private String name;
 	private String city;
 	
-	@ManyToMany(mappedBy="laptop")
-	private List<Laptop> laptop=new ArrayList<Laptop>();
+	//@ManyToMany(mappedBy="laptop")
+	//private List<Laptop> laptop=new ArrayList<Laptop>();
 	
 	public int getId() {
 		return id;
@@ -42,13 +42,13 @@ public class StudentGradle implements Serializable{
 		this.city = city;
 	}
 	//getter setter for laptop
-	public List<Laptop> getLaptop() {
-		return laptop;
-	}
-	public void setLaptop(List<Laptop> laptop) {
-		this.laptop = laptop;
-	}
-	
+//	public List<Laptop> getLaptop() {
+//		return laptop;
+//	}
+//	public void setLaptop(List<Laptop> laptop) {
+//		this.laptop = laptop;
+//	}
+//	
 	
 	//for retreving TEl
 	@Override

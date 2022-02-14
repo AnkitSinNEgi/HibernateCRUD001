@@ -12,8 +12,8 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Laptop {
 	@Id
-	private int lid;
-	private String lname;
+	private int lid = 1;
+	private String lname="DEll";
 	
 	
 	@ManyToMany
@@ -47,7 +47,5 @@ public class Laptop {
 	public void setStudentgradle(List<StudentGradle> studentgradle) {
 		this.studentgradle = studentgradle;
 	}
-	
-	
-	
+		
 }
